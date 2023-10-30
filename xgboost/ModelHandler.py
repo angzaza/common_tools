@@ -77,7 +77,7 @@ class ModelHandler(object):
         #hard coded preselections
         #selection_mask = (data["pt"] > 5) & (data["pt"] < 6) & (abs(data["eta"])<1.4) & (data["highPurity"]>0) 
          
-        reweight = self.filter_data(data['pt'],data['eta'],data['sim_type'])
+        #reweight = self.filter_data(data['pt'],data['eta'],data['sim_type'])
 
         if self.do_weight:
           #  selection_mask = (data["highPurity"]>0) & (data["pt"] > 2) & (abs(data["eta"])<2.5) & reweight
@@ -139,7 +139,7 @@ class ModelHandler(object):
         print("out of loop")
         self.data = self.merge_data(datasets)
         print("Total number of events:", len(self.data[self.event_branch_name]))
-
+    '''
     def filter_data(self,arr_pt,arr_eta,arr_sim_type):
 
         w_file = TFile.Open("weight_pt3.root")
@@ -195,7 +195,8 @@ class ModelHandler(object):
     def add_weight(self):
         self.train_weights = self.get_weights(self.train_data['pt'],self.train_data['eta'],self.train_data['sim_type'])
         self.test_weights = self.get_weights(self.test_data['pt'],self.test_data['eta'],self.test_data['sim_type'])
- 
+
+    '''
     def apply_selection(self, selection_mask):
         """Select events for the model using the selection mask"""
         self.data = self.select_events(self.data, selection_mask)
@@ -614,7 +615,6 @@ class ModelHandler(object):
         ax.legend()
         fig.set_tight_layout(True)
         fig.savefig("results/study/compare-roc.pdf") 
-
 
     def predict_model(self,bin_num, event_type):
 
