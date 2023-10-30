@@ -14,4 +14,4 @@ cmsenv
 
 See a working example running on DiMuon BPH MC nanoAODs
 
-`python train_muon_mva.py` 
+`python3 train_muon_mva.py` 
