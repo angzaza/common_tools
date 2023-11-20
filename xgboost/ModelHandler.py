@@ -12,8 +12,8 @@ import matplotlib as mpl
 mpl.use('Agg')
 import matplotlib.pyplot as plt
 import random
-import ROOT
-from ROOT import *
+#import ROOT
+#from ROOT import *
 
 class ModelHandler:
     """XGBoost Model training and validation"""
@@ -158,13 +158,14 @@ class ModelHandler:
         self.y_train = self.train_data[self.Y_column] #This is a pd series
         self.y_test = self.test_data[self.Y_column]
         
-        self.train_weights = self.train_data[self.weight_column]
-        self.test_weights = self.test_data[self.weight_column]
-        #print(self.train_weights)
+        if self.do_weight: 
+          self.train_weights = self.train_data[self.weight_column]
+          self.test_weights = self.test_data[self.weight_column]
+          #print(self.train_weights)
         
-        #Rimuovere dopo il test:
-        self.train_weights = self.train_weights.clip(upper=1)
-        self.test_weights = self.test_weights.clip(upper=1)
+          #Rimuovere dopo il test:
+          self.train_weights = self.train_weights.clip(upper=1)
+          self.test_weights = self.test_weights.clip(upper=1)
                 
         self.y_train = self.y_train.apply(lambda x: x != self.BDT_0)
         self.y_test = self.y_test.apply(lambda x: x != self.BDT_0)
