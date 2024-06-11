@@ -146,7 +146,8 @@ class ModelHandler:
     def prepare_train_and_test_datasets(self, config, n=4, index=0):
         """Split dataset into train and test subsets using event number."""
 
-        #mask_train = self.data.index % n != index 
+        #mask_train = self.data.index % n != index
+        print("n= ", n, "  index= ", index) 
         mask_train = self.data[self.index_branch] % n != index 
         mask_test = self.data[self.index_branch] % n == index
         self.train_data = self.data[mask_train]

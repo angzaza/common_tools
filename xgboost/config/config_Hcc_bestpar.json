@@ -1,0 +1,155 @@
+{
+    "_comments": {
+            "feature_names": "List of branches used",
+            "tree_name": "Name of the tree",
+            "event_branch_name": "Name of the branch with the event index",
+            "output_path": "Path for the output",
+            "selections_1": "",
+            "event_fraction": "Is the fraction of original data files which are read",
+            "Y_column": "Is the Y set",
+            "BDT_0": "Is the value of Y_column associated to the 0 in the training, the values different from BDT_0 will be 1",
+            "prediction_category_lable": "Used only in predictions, it is a id: 0, 1, 2, ... that identify the category, so the category list given as input must be consistent with this"
+    },
+    "feature_names": [
+        "CvsB_jetC1",
+        "CvsB_jetC2",
+        "CvsL_jetC1",
+        "CvsL_jetC2",
+        "mqq",
+        "Deta_qq",
+        "Dphi_qq",
+        "Alpha_qq",
+        "QvsG_VBF1",
+        "QvsG_VBF2",
+        "pz_4jets",
+        "pt_norm",
+        "DR_HiggsVBF1",
+        "DR_HiggsVBF2",
+        "Dphi_qq_cc",
+        "njets",
+        "jetEne_sum",
+        "jetPt_sum"
+    ],
+    "other_branches": [
+        "isMC",
+        "lumi",
+        "run",
+        "evt",
+        "entry",
+        "puFactor",
+        "pt_jetC1",
+        "pt_jetC2",
+        "pt_jetVBF1",
+        "pt_jetVBF2",
+        "eta_jetC1",
+        "eta_jetC2",
+        "eta_jetVBF1",
+        "eta_jetVBF2",
+        "CvsAll_jetC1",
+        "CvsAll_jetC2",
+        "mCC"
+    ],
+    "Y_column": "isMC",
+    "BDT_0":0,
+    "xgb_parameters": [
+        {"objective": "binary:logistic"},
+        {"n_estimators": 100},
+        {"eta": 0.3},
+        {"max_depth": 6},
+        {"silent": 1},
+        {"nthread": 15},
+        {"eval_metric": "auc"},
+        {"subsample": 0.7},
+        {"alpha": 5.0},
+        {"gamma": 1.0},
+        {"lambda": 3.0},
+        {"min_child_weight": 0.05},
+        {"colsample_bytree": 0.7},
+        {"tree_method": "hist"}
+    ],
+    "Cat_A_1!": [
+        {"dimu_OS1": ["<", 1.044]},
+        {"dimu_OS1": [">", 0.994]}
+    ],
+    "Cat_A_2!": [
+        {"dimu_OS2": ["<", 1.044]},
+        {"dimu_OS2": [">", 0.994]}
+    ],
+    "Cat_A_3!": [
+        {"dimu_OS1": ["<", 0.79]},
+        {"dimu_OS1": [">", 0.77]}
+    ],
+    "Cat_A_4!": [
+        {"dimu_OS2": ["<", 0.79]},
+        {"dimu_OS2": [">", 0.77]}
+    ],
+    "Cat_A_5": [
+        {"category": ["==", 0]}
+    ],
+    "Cat_A_bkg_6!": [
+        {"tripletMass": ["<", 1.801]},
+        {"tripletMass": [">", 1.753]}
+    ],
+    "Cat_B_1!": [
+        {"dimu_OS1": ["<", 1.053]},
+        {"dimu_OS1": [">", 0.985]}
+    ],
+    "Cat_B_2!": [
+        {"dimu_OS2": ["<", 1.053]},
+        {"dimu_OS2": [">", 0.985]}
+    ],
+    "Cat_B_3!": [
+        {"dimu_OS1": ["<", 0.79]},
+        {"dimu_OS1": [">", 0.77]}
+    ],
+    "Cat_B_4!": [
+        {"dimu_OS2": ["<", 0.79]},
+        {"dimu_OS2": [">", 0.77]}
+    ],
+    "Cat_B_5": [
+        {"category": ["==", 1]}
+    ],
+    "Cat_B_bkg_6!": [
+        {"tripletMass": ["<", 1.815]},
+        {"tripletMass": [">", 1.739]}
+    ],
+    "Cat_C_1!": [
+        {"dimu_OS1": ["<", 1.064]},
+        {"dimu_OS1": [">", 0.974]}
+    ],
+    "Cat_C_2!": [
+        {"dimu_OS2": ["<", 1.064]},
+        {"dimu_OS2": [">", 0.974]}
+    ],
+    "Cat_C_3!": [
+        {"dimu_OS1": ["<", 0.79]},
+        {"dimu_OS1": [">", 0.77]}
+    ],
+    "Cat_C_4!": [
+        {"dimu_OS2": ["<", 0.79]},
+        {"dimu_OS2": [">", 0.77]}
+    ],
+    "Cat_C_5": [
+        {"category": ["==", 2]}
+    ],
+    "Cat_C_bkg_6!": [
+        {"tripletMass": ["<", 1.827]},
+        {"tripletMass": [">", 1.727]}
+    ],
+    "tree_name": "FinalTree",
+    "output_path": "results/BDT",
+    "event_fraction": 1.0,
+    "validation_plots": true,
+    "number_of_splits": 5,
+    "do_weight": false,
+    "weight_column": "",
+    "index_branch": "evt",
+    "prediction_category_lable": "category",
+    "out_tree_name": "OutputTree",
+    "Name": "Run2023",
+    "data_path": "/lustrehome/azaza/HccAnalysis/CMSSW_12_4_3/src/Analysis/BDT_trainingFiles/",
+    "files": [
+        "input_training/"
+    ]
+}
+
